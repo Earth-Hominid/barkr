@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
-app.use('/chatroom', chatroomRouter);
+app.use('/chatroom/users', chatroomRouter);
 
 app.use(handleError);
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
