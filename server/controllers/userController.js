@@ -4,7 +4,7 @@ const Post = require('../models/post');
 const Response = require('../models/response');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 
-// POST req to register a new user
+// POST - Register a new user
 // @route /chatroom/user
 // Access is public
 
@@ -50,3 +50,35 @@ const register_user = asyncHandler(async (req, res) => {
     throw new Error('User data is invalid');
   }
 });
+
+// POST - Authenticate a user
+// @route /chatroom/login
+// Access is public
+const login_user = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  // Search if member exists in database by using email (which is set to unique in the model.)
+
+  const user = await User.findOne({ email });
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      name: user.first_name + ' ' + user.last_name,
+      email: user.email,
+    });
+  } else {
+    res.status(400);
+    throw new Error('The credentials are invalid');
+  }
+});
+
+// GET - user data
+//@route /chatroom/user/my-info
+// Access is private
+
+const user_info = asyncHandler(async (req, res) => {
+  await res.status(200).json({ name: 'User Name' });
+});
+
+module.exports = { register_user, login_user, user_info };
