@@ -1,12 +1,11 @@
-import LogIn from '../components/log-in/LogIn';
+import LogInForm from '../components/log-in/LogInForm';
 
 import React from 'react';
 
 const LogInPage = () => {
   return (
     <>
-      {' '}
-      <LogIn />
+      <LogInForm />
     </>
   );
 };
