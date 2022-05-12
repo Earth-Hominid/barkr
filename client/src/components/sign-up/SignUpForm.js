@@ -20,13 +20,15 @@ const SignUpForm = () => {
         shadow-lg
         rounded-md"
         >
-          <form action="" method="POST" className="mt-6 text-sm ">
+          <form action="" method="POST" className="mt-6 text-[14px] ">
             <div className="relative">
               <input
                 id="first_name"
                 type="text"
                 name="first_name"
                 required=""
+                min="1"
+                max="50"
                 placeholder="Firstname"
                 className="peer h-10 w-full border-b-2 border-slate-400 focus:outline-none focus:border-indigo-600 placeholder-transparent
                 invalid:border-pink-500 
@@ -48,11 +50,13 @@ const SignUpForm = () => {
                 Firstname
               </label>
             </div>
-            <div className="mt-6 relative">
+            <div className="mt-4 relative">
               <input
                 id="last_name"
                 name="last_name"
                 required=""
+                min="1"
+                max="50"
                 type="text"
                 placeholder="Lastname"
                 className="peer h-10 w-full border-b-2 border-slate-400 focus:outline-none focus:border-indigo-600 placeholder-transparent"
@@ -76,7 +80,7 @@ const SignUpForm = () => {
                 Lastname
               </label>
             </div>
-            <div className="mt-6 relative">
+            <div className="mt-4 relative">
               <input
                 id="email"
                 name="email"
@@ -107,12 +111,13 @@ const SignUpForm = () => {
                 Email
               </label>
             </div>
-            <div className="mt-6 relative">
+            <div className="mt-4 relative">
               <input
                 id="username"
                 name="username"
                 required=""
                 type="text"
+                min="8"
                 placeholder="Username"
                 className="peer h-10 w-full border-b-2 border-slate-400 focus:outline-none focus:border-indigo-600 placeholder-transparent"
               />
@@ -135,12 +140,14 @@ const SignUpForm = () => {
                 Username
               </label>
             </div>
-            <div className="mt-6 relative">
+            <div className="mt-4 relative">
               <input
                 id="password"
                 name="password"
                 required=""
-                type="text"
+                type="password"
+                min="3"
+                max="15"
                 placeholder="Password"
                 className="peer h-10 w-full border-b-2 border-slate-400 focus:outline-none focus:border-indigo-600 placeholder-transparent"
               />
@@ -163,7 +170,7 @@ const SignUpForm = () => {
                 Password
               </label>
             </div>
-            <div className="mt-10 mb-12">
+            <div className="mt-6 mb-12">
               <button className="bg-indigo-600 p-2 rounded-md text-white w-full text-base hover:opacity-90">
                 Submit
               </button>
