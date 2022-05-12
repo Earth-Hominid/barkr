@@ -7,30 +7,40 @@ import Poo from '../../../../assets/icons/poo.svg';
 import PooHover from '../../../../assets/icons/pooHover.svg';
 
 const QuantityAdjuster = () => {
-  const [postVote, setPostVote] = useState(2);
+  const [postVotes, setPostVotes] = useState(2);
   const [checkmarkHover, setCheckmarkHover] = useState(Checkmark);
   const [pooHover, setPooHover] = useState(Poo);
-  const [upVote, setUpVote] = useState(false);
-  const [downVote, setDownVote] = useState(false);
+  const [checkSelected, setCheckSelected] = useState(false);
+  const [pooSelected, setPooSelected] = useState(false);
 
   const handleIncreaseClick = (event) => {
-    if (!upVote) {
-      setUpVote(true);
-      setPostVote((postVote) => parseInt(postVote + 1));
+    if (!checkSelected && !pooSelected) {
+      setCheckSelected(true);
+      setPostVotes((postVote) => parseInt(postVote + 1));
       return;
     }
-    if (upVote) {
+    if (!checkSelected && pooSelected) {
+      setCheckSelected(true);
+      setPooSelected(false);
+      setPostVotes((postVotes) => parseInt(postVotes + 2));
+    }
+    if (checkSelected) {
       return;
     }
   };
 
   const handleDecreaseClick = () => {
-    if (!downVote) {
-      setDownVote(true);
-      setPostVote((postVote) => parseInt(postVote - 1));
+    if (!checkSelected && !pooSelected) {
+      setPooSelected(true);
+      setPostVotes((postVotes) => parseInt(postVotes - 1));
       return;
     }
-    if (downVote) {
+    if (!pooSelected && checkSelected) {
+      setCheckSelected(false);
+      setPooSelected(true);
+      setPostVotes((postVotes) => parseInt(postVotes - 2));
+    }
+    if (pooSelected) {
       return;
     }
   };
@@ -68,7 +78,7 @@ const QuantityAdjuster = () => {
           border-none
           focus:border-none"
         >
-          {postVote}
+          {postVotes}
         </p>
         <button onClick={handleDecreaseClick}>
           <img
