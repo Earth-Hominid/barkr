@@ -18,7 +18,7 @@ const LogIn = () => {
         shadow-lg
         rounded-md"
         >
-          <form action="" method="POST" className="mt-12 text-sm md:text-lg">
+          <form action="" method="POST" className="mt-8 text-sm md:text-lg">
             <div className="relative">
               <input
                 id="email"
@@ -46,7 +46,7 @@ const LogIn = () => {
                 Email address
               </label>
             </div>
-            <div className="mt-10 relative">
+            <div className="mt-8 relative">
               <input
                 id="password"
                 name="password"
