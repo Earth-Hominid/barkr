@@ -36,8 +36,9 @@ module.exports = { handleError };
 ### Dependencies & Development Dependencies
 
 - [Express](https://expressjs.com/)
+- [Express Async Handler](https://github.com/Abazhenov/express-async-handler)
+- [Express Validator](https://www.npmjs.com/package/express-validator)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Nodemon](https://nodemon.io/) - Development dependency
 - [Mongoose](https://mongoosejs.com/)
-- [Express Async Handler](https://github.com/Abazhenov/express-async-handler)
 - [Colors](https://www.npmjs.com/package/colors) - Colored text for the console.
