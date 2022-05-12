@@ -3,7 +3,7 @@ const router = express.Router();
 
 //GET home page
 router.get('/', (req, res) => {
-  res.redirect('/chatroom');
+  res.redirect('/catalog');
 });
 
 module.exports = router;

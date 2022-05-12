@@ -25,6 +25,10 @@ const WoofSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    votes: {
+      type: Number,
+      default: 1,
+    },
   },
   { timestamps: true }
 );

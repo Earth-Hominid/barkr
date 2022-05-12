@@ -10,7 +10,7 @@ const { handleError } = require('./middleware/errorMiddleware');
 const connectDatabase = require('./config/database');
 const port = process.env.PORT || 5001;
 const indexRouter = require('./routes/index');
-const chatroomRouter = require('./routes/chatroom');
+const catalogRouter = require('./routes/catalog');
 
 connectDatabase();
 const app = express();
@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
-app.use('/chatroom', chatroomRouter);
+app.use('/catalog', catalogRouter);
 
 app.use(handleError);
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
