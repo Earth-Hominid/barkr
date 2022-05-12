@@ -65,9 +65,7 @@ const Trending = () => {
               opacity-40"
             />
             <div className="relative">
-              <h2 className="text-sm font-bold mt-1 text-white">
-                Did you know?
-              </h2>
+              <h2 className="text-sm font-bold mt-1 text-white">Hygiene</h2>
               <h3 className="text-xs text-white font-semi-bold">
                 Water bowl should be changed at least once daily.
               </h3>
