@@ -24,4 +24,4 @@ HowlSchema.virtual('url').get(function () {
   return 'chatroom/howl' + this._id;
 });
 
-model.exports = mongoose.model('Howl', HowlSchema);
+module.exports = mongoose.model('Howl', HowlSchema);

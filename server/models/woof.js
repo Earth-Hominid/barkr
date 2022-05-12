@@ -33,4 +33,4 @@ WoofSchema.virtual('url').get(function () {
   return 'chatroom/woof' + this._id;
 });
 
-model.exports = mongoose.model('Woof', WoofSchema);
+module.exports = mongoose.model('Woof', WoofSchema);

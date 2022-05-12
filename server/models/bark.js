@@ -34,4 +34,4 @@ BarkSchema.virtual('url').get(function () {
   return 'chatroom/bark' + this._id;
 });
 
-model.exports = mongoose.model('Bark', BarkSchema);
+module.exports = mongoose.model('Bark', BarkSchema);

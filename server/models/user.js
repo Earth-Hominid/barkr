@@ -44,4 +44,4 @@ const UserSchema = new Schema(
 
 UserSchema.virtual('url').get(() => '/chatroom/user' + this._id);
 
-model.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
