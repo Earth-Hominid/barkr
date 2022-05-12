@@ -3,11 +3,11 @@ import Logo from '../../assets/images/logo/logo-light.png';
 
 const Navigaton = () => {
   return (
-    <nav className="h-16 whitespace-nowrap flex flex-row items-center">
+    <nav className="h-10 whitespace-nowrap flex flex-row items-center sticky top-0 z-50 bg-white">
       <div>
         <Link to="/barker">
           <img
-            className=" cursor-pointer min-w-28 w-28"
+            className=" cursor-pointer min-w-24 w-24"
             src={Logo}
             alt="barker logo"
           />
@@ -20,7 +20,7 @@ const Navigaton = () => {
         ].map(([title, url]) => (
           <a
             href={url}
-            className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-stone-300 text-xs hover:text-slate-900"
+            className="rounded-lg px-2.5 py-2 text-stone-700 font-medium hover:bg-stone-300 text-xs hover:text-stone-900"
           >
             {title}
           </a>
