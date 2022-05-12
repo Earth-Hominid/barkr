@@ -7,11 +7,33 @@ import Poo from '../../../../assets/icons/poo.svg';
 import PooHover from '../../../../assets/icons/pooHover.svg';
 
 const QuantityAdjuster = () => {
-  const [postVote, setPostVote] = useState(1);
+  const [postVote, setPostVote] = useState(2);
   const [checkmarkHover, setCheckmarkHover] = useState(Checkmark);
   const [pooHover, setPooHover] = useState(Poo);
+  const [upVote, setUpVote] = useState(false);
+  const [downVote, setDownVote] = useState(false);
 
-  const onCheckmarkClick = () => setCheckmarkHover(CheckmarkHover);
+  const handleIncreaseClick = (event) => {
+    if (!upVote) {
+      setUpVote(true);
+      setPostVote((postVote) => parseInt(postVote + 1));
+      return;
+    }
+    if (upVote) {
+      return;
+    }
+  };
+
+  const handleDecreaseClick = () => {
+    if (!downVote) {
+      setDownVote(true);
+      setPostVote((postVote) => parseInt(postVote - 1));
+      return;
+    }
+    if (downVote) {
+      return;
+    }
+  };
 
   return (
     <>
@@ -22,12 +44,11 @@ const QuantityAdjuster = () => {
             justify-start
             items-center"
       >
-        <button>
+        <button onClick={handleIncreaseClick}>
           <img
             className="w-5 h-5 mb-1"
             src={checkmarkHover}
             alt="checkmark"
-            onClick={() => setCheckmarkHover(CheckmarkHover)}
             onMouseEnter={() => {
               setCheckmarkHover(CheckmarkHover);
             }}
@@ -49,17 +70,19 @@ const QuantityAdjuster = () => {
         >
           {postVote}
         </p>
-        <img
-          className="h-5 w-5 mt-1"
-          src={pooHover}
-          alt="downvote"
-          onMouseEnter={() => {
-            setPooHover(PooHover);
-          }}
-          onMouseOut={() => {
-            setPooHover(Poo);
-          }}
-        />
+        <button onClick={handleDecreaseClick}>
+          <img
+            className="h-5 w-5 mt-1"
+            src={pooHover}
+            alt="downvote"
+            onMouseEnter={() => {
+              setPooHover(PooHover);
+            }}
+            onMouseOut={() => {
+              setPooHover(Poo);
+            }}
+          />
+        </button>
       </div>
     </>
   );
